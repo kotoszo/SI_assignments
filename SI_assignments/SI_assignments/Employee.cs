@@ -30,12 +30,13 @@ namespace SI_assignments
             string oldText = base.ToString();
             return string.Format("{0} My salary is around {1} and my profession is {2}", oldText, this.salary, this.profession);
         }
-
+        // Like a reference, changes goes for both.
         /*public object Clone()
         {
             return this.MemberwiseClone();
         }*/
 
+        // changes goes separately
         public object Clone()
         {
             Employee cloneEmployee = (Employee)this.MemberwiseClone();
