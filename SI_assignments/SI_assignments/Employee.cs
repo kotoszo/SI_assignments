@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SI_assignments
 {
-    class Employee : Person
+    class Employee : Person, ICloneable
     {
         private string profession;
         private int salary;
@@ -17,13 +17,30 @@ namespace SI_assignments
             this.salary = salary;
             this.profession = profession;
             this.info = ToString();
-            this.room = new Room();
+        }
+
+        public Room Room
+        {
+            set { this.room = value; }
+            get { return this.room; }
         }
         
         public override String ToString()
         {
             string oldText = base.ToString();
             return string.Format("{0} My salary is around {1} and my profession is {2}", oldText, this.salary, this.profession);
+        }
+
+        /*public object Clone()
+        {
+            return this.MemberwiseClone();
+        }*/
+
+        public object Clone()
+        {
+            Employee cloneEmployee = (Employee)this.MemberwiseClone();
+            cloneEmployee.Room = new Room(Room.Number);
+            return cloneEmployee;
         }
     }
 }

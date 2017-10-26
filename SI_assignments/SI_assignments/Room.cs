@@ -8,17 +8,17 @@ namespace SI_assignments
 {
     class Room
     {
-        private int roomNumber;
+        private int number;
 
-        public Room()
+        public Room(int number)
         {
-            this.roomNumber = 123;
+            this.number = number;
         }
 
-        public int RoomNumber
+        public int Number
         {
-            get { return this.roomNumber; }
-            set { this.roomNumber = value; }
+            get { return this.number; }
+            set { this.number = value; }
         }
     }
 }
